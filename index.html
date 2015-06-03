@@ -3,9 +3,25 @@
   <head>
     <meta charset="UTF-8">
     <title>vinietskyzilla.github.io</title>
-    <meta http-equiv="refresh" content="0; URL='/portfolio'">
   </head>
   <body>
-    <p>This page should automatically redirect <a href="/portfolio">here</a> momentarily...</p>
+    <p>This page should automatically redirect <a href="/portfolio">here</a> in <span id="counter">3</span></p>
+    <!-- This is not a permanent redirect because I may someday use this page
+    for another purpose. I don't like the confusing flash that happens using a
+    meta refresh redirect, so going with this countdown instead. -->
+    <script>
+      var count = 3;
+      var counterSpan = document.getElementById('counter');
+      function counterFunction() {
+        count -= 1;
+        if (count === 0) {
+          window.location = "/portfolio";
+        } else {
+          counterSpan.innerHTML = count;
+          setTimeout(counterFunction, 1000);
+        }
+      }
+      setTimeout(counterFunction, 1000);
+    </script>
   </body>
 </html>
