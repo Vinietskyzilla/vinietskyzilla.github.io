@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>dcki.github.io</title>
+  </head>
+  <body>
+    <p>This page should automatically redirect to my <a href="https://docs.google.com/document/d/1SX44DRrVLPv_OksjBJKYAJIbJ0rDt-WAda8SLfEI_rw">résumé</a> in <span id="counter">3</span></p>
+    <p>- David</p>
+    <!-- This is not a permanent redirect because I may someday use this page
+    for another purpose. I don't like the confusing flash that happens using a
+    meta refresh redirect, so going with this countdown instead. -->
+    <script>
+      var count = 3;
+      var counterSpan = document.getElementById('counter');
+      function counterFunction() {
+        count -= 1;
+        if (count === 0) {
+          window.location = "https://docs.google.com/document/d/1SX44DRrVLPv_OksjBJKYAJIbJ0rDt-WAda8SLfEI_rw";
+        } else {
+          counterSpan.innerHTML = count;
+          setTimeout(counterFunction, 1000);
+        }
+      }
+      setTimeout(counterFunction, 1000);
+    </script>
+  </body>
+</html>
